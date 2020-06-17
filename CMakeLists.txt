@@ -40,4 +40,6 @@ else()
     )
 endif()
 
-target_link_libraries(video-app FFmpeg glfw ${EXTRA_LIBS})
+#target_link_libraries(video-app glfw ${EXTRA_LIBS} FFmpeg)
+target_link_libraries(video-app ${EXTRA_LIBS} glfw3)
+target_link_libraries(video-app FFmpeg)
