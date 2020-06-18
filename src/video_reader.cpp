@@ -32,9 +32,9 @@ bool video_reader_open(VideoReaderState* state, const char* filename) {
         return false;
     }
 
-    AVInputFormat* av_input_format = av_find_input_format("avfoundation");
+    AVInputFormat* av_input_format = av_find_input_format("v4l2");
     if (!av_input_format) {
-        printf("Couldn't find AVFoundation input format to get webcam\n");
+        printf("Couldn't find v4l2 input format to get webcam\n");
         return false;
     }
 
@@ -42,7 +42,7 @@ bool video_reader_open(VideoReaderState* state, const char* filename) {
     av_dict_set(&options, "framerate", "25", 0);
     av_dict_set(&options, "pix_fmt", "rgb0", 0);
 
-    if (avformat_open_input(&av_format_ctx, "0:none", av_input_format, &options) != 0) {
+    if (avformat_open_input(&av_format_ctx, filename, av_input_format, &options) != 0) {
         printf("Couldn't open video file\n");
         return false;
     }

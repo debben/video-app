@@ -1,2 +1,6 @@
 .DS_Store
 build/
+CMakeFiles/*
+lib/FFMpeg/CMakeFiles/*
+lib/glfw/CMakeFiles/*
+Makefile
